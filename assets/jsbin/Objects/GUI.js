@@ -24,10 +24,9 @@ function GUI() {
 
 		//draw precent
 		fill("#222");
-		text((Math.round(health * 100)).toString() + "%", 83, 32);
-		
-
-
+		textStyle(BOLD);
+		textSize(13);
+		text((Math.round(health * 100)).toString() + "%  " + Math.round(robot.health) +"/" + Math.round(robot.max_health) +" mAh", 40, 32);
 
 	}
 

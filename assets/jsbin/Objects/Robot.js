@@ -38,7 +38,7 @@ function Robot(x,y) {
 
 
 		if (!this.flying&&(this.y + this.height < height - 25)) {
-			this.y += 15;
+			this.y += gravity;
 			this.falling = true;
 		} else {
 			this.falling = false;

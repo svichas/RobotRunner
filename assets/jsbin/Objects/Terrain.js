@@ -9,7 +9,6 @@ function Terrain() {
 	this.render = function() {
 
 		background("#3498db");
-		
 
 		/*
 		Render road
@@ -24,9 +23,9 @@ function Terrain() {
 			rect(i+(this.start),height-45,55, 18);
 		}
 
-		if (frameCount % Math.round(random(100,200)) == 0) {
+		if (frameCount % Math.round(random(80,160)) == 0) {
 			//clouds.push(new Cloud());
-			for (i=1;i<=random(1,6);i++) {
+			for (i=1;i<=random(1,8);i++) {
 				houses.push(new House(i));
 			}
 		}
