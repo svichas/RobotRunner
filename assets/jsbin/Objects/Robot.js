@@ -12,6 +12,7 @@ function Robot(x,y) {
 
 	this.max_health = 400;
 	this.health = 400;
+	this.img = loadGif("assets/imgbin/robot.gif");
 
 	//this.humanImage = ("assets/imgbin/Human.png");
 
@@ -21,8 +22,11 @@ function Robot(x,y) {
 	}
 
 	this.render = function() {
-		fill(255);
-		rect(this.x,this.y,this.width,this.height);
+		//fill(255);
+		//rect(this.x,this.y,this.width,this.height);
+
+		image(this.img, this.x, this.y, this.width, this.height);
+
 	}
 
 	this.update = function() {

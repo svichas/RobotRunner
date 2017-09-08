@@ -2,15 +2,15 @@ function EnergyItem(x,y) {
 
 	this.x = x;
 	this.y = y;
-	this.width = 20;
-	this.height = 20;
+	this.width = 40;
+	this.height = 40;
 	this.img = loadImage("assets/imgbin/Items/energy.png");
 
 	this.render = function() {
 		fill("#111");
 
 
-		this.x -= 5;
+		this.x -= scrollSpeed;
 
 		//rect(this.x,this.y,this.width,this.height);
 		image(this.img, this.x, this.y, this.width, this.height);

@@ -4,8 +4,6 @@ var houses = [];
 function Terrain() {
 
 	this.start = 0;
-	this.scrollSpeed = 10;
-
 	this.render = function() {
 
 		background("#3498db");
@@ -36,7 +34,7 @@ function Terrain() {
 		}
 
 		for (var i = houses.length-1; i >= 0; i--) {
-			houses[i].x -= this.scrollSpeed;
+			houses[i].x -= scrollSpeed;
 			houses[i].render();
 			if (houses[i].offScreen()) {
 				houses.splice(i, 1);
@@ -44,7 +42,7 @@ function Terrain() {
 		}
 
 
-		this.start-=this.scrollSpeed;
+		this.start-= scrollSpeed;
 
 		if (this.start < -1*width) {
 			this.start = 0;

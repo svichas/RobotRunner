@@ -2,6 +2,7 @@ var robot,GUI,itemsHandler;
 pause = false;
 gameover = false;
 
+var scrollSpeed = 5;
 var clouds,messages = [];
 var gravity = 15;
 
@@ -15,6 +16,7 @@ function setup() {
 	clouds   = [];
 	gravity  = 15;
 	items    = [];
+	scrollSpeed = 5;
 
 	robot        = new Robot(50,50);
 	GUI          = new GUI();
@@ -28,6 +30,7 @@ function draw() {
 	noStroke();
 	
 	if (!pause && !gameover) {
+	
 		//background color	
 		terrain.render();
 
@@ -70,6 +73,7 @@ function draw() {
 
 	}
 
+	
 	if (gameover) {
 
 		text("Press (R) to play again.", 100, 100);
@@ -79,7 +83,7 @@ function draw() {
 
 }
 function keyPressed() {
-	console.log(keyCode);
+
 	//up
 	if (keyCode == 87 || keyCode == UP_ARROW) {
 		robot.fly();

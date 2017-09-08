@@ -34,11 +34,13 @@ function GUI() {
 	this.findHealthBarColor = function() {
 
 		colorRange = [
+			"#F22613",
 			"#c0392b",
 			"#e74c3c",
 			"#d35400",
 			"#2ecc71",
-			"#27ae60"
+			"#27ae60",
+			"#26A65B"
 		];
 
 		health = (robot.health / robot.max_health);
