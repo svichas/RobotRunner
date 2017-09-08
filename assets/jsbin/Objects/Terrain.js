@@ -1,6 +1,8 @@
 
 var houses = [];
 
+var advertice_tables = [];
+
 function Terrain() {
 
 	this.start = 0;
@@ -21,11 +23,18 @@ function Terrain() {
 			rect(i+(this.start),height-45,55, 18);
 		}
 
-		if (frameCount % 50 == 0) {
+		if (frameCount % 120 == 0) {
 			//clouds.push(new Cloud());
 			for (i=1;i<=random(1,8);i++) {
 				houses.push(new House(i));
 			}
+		}
+
+
+		if (frameCount % 80 == 0) {
+			//clouds.push(new Cloud());
+			advertice_tables.push(new AdvertiseTable());
+			
 		}
 
 
@@ -41,6 +50,13 @@ function Terrain() {
 			}
 		}
 
+		for (var i = advertice_tables.length-1; i >= 0; i--) {
+			advertice_tables[i].x -= scrollSpeed;
+			advertice_tables[i].render();
+			if (advertice_tables[i].x + advertice_tables[i].width < 0) {
+				advertice_tables.splice(i, 1);
+			}
+		}
 
 		this.start-= scrollSpeed;
 

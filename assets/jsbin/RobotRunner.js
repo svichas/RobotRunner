@@ -8,7 +8,7 @@ var gravity = 15;
 
 function setup() {
 	
-	createCanvas(1000,400);
+	createCanvas(window.innerWidth,window.innerHeight);
 	
 
 	pause    = false;
