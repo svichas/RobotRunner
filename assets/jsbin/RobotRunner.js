@@ -1,5 +1,6 @@
 var robot,GUI,itemsHandler;
 pause = false;
+gameover = false;
 
 var clouds,messages = [];
 var gravity = 15;
@@ -7,6 +8,13 @@ var gravity = 15;
 function setup() {
 	
 	createCanvas(1000,400);
+	
+
+	pause    = false;
+	gameover = false;
+	clouds   = [];
+	gravity  = 15;
+	items    = [];
 
 	robot        = new Robot(50,50);
 	GUI          = new GUI();
@@ -19,7 +27,7 @@ function setup() {
 function draw() {
 	noStroke();
 	
-	if (!pause) {
+	if (!pause && !gameover) {
 		//background color	
 		terrain.render();
 
@@ -42,15 +50,15 @@ function draw() {
 			
 
 			if (messages[i].life > 78 ) {
-				messages[i].y += 4;
+				messages[i].y += random(3,4);
 			} else {
-				messages[i].y -= 5;
+				messages[i].y -= random(5,6);
 			}
 
 			if (messages[i].dir) {
-				messages[i].x += 3;
+				messages[i].x += random(3,4);
 			} else {
-				messages[i].x -= 3;
+				messages[i].x -= random(3,4);
 			}
 
 			messages[i].life += 10;
@@ -62,19 +70,27 @@ function draw() {
 
 	}
 
+	if (gameover) {
+
+		text("Press (R) to play again.", 100, 100);
+
+	}
+
 
 }
-
-
 function keyPressed() {
+	console.log(keyCode);
 	//up
 	if (keyCode == 87 || keyCode == UP_ARROW) {
 		robot.fly();
-		items.push(new EnergyItem(robot.x,robot.y));
 	}
 
 	if (keyCode == 80) {
 		pause = !pause;
+	}
+
+	if (keyCode == 82) {
+		setup();
 	}
 }
 
@@ -91,8 +107,8 @@ function throwMessage(message="",x=0,y=0,color="#000") {
 
 	messages.push({
 		"message": message,
-		"x": x,
-		"y": y,
+		"x": x+(random(-30,30)),
+		"y": y+(random(-30,30)),
 		"life": 0,
 		"color": color,
 		"dir": Math.round(random(1))

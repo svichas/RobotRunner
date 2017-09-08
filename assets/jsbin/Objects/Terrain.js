@@ -23,11 +23,16 @@ function Terrain() {
 			rect(i+(this.start),height-45,55, 18);
 		}
 
-		if (frameCount % Math.round(random(80,160)) == 0) {
+		if (frameCount % 50 == 0) {
 			//clouds.push(new Cloud());
 			for (i=1;i<=random(1,8);i++) {
 				houses.push(new House(i));
 			}
+		}
+
+
+		if (frameCount % Math.round(random(80,160)) == 0) {
+			items.push(new EnergyItem(width, height-100));
 		}
 
 		for (var i = houses.length-1; i >= 0; i--) {

@@ -8,6 +8,10 @@ function EnergyItem(x,y) {
 
 	this.render = function() {
 		fill("#111");
+
+
+		this.x -= 5;
+
 		//rect(this.x,this.y,this.width,this.height);
 		image(this.img, this.x, this.y, this.width, this.height);
 
@@ -15,8 +19,10 @@ function EnergyItem(x,y) {
 	}
 
 	this.onCollision = function() {
-		robot.health += 20;
-		throwMessage("+ 20 mAh", robot.x, robot.y);
+		
+		robot.addEnergy(20);
+
+		return true;
 	}
 
 	// item is effected by grttavity

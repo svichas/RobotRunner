@@ -45,6 +45,11 @@ function Robot(x,y) {
 		}
 
 
+		if (this.health <= 0) {
+			gameover = true;
+		}
+
+
 	}
 
 
@@ -56,5 +61,22 @@ function Robot(x,y) {
 		this.flying = false;
 	}
 
+
+	this.addEnergy = function(amount) {
+
+
+		throwMessage("+ "+amount+" mAh", robot.x, robot.y);
+		this.health += Math.round(amount);
+
+
+		if (this.health > this.max_health) {
+			overcharge_amount = ((this.health + amount) - this.max_health)/2;
+			overcharge_amount = Math.round(overcharge_amount);
+			this.max_health -= overcharge_amount;
+			this.health = this.max_health;
+			throwMessage("Over charge -"+overcharge_amount, robot.x, robot.y);
+		}
+
+	}
 
 }
